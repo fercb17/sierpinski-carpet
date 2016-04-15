@@ -1,0 +1,6 @@
+#Normalize text files
+* text=auto
+
+#Ignore images
+*.png binary
+*.jpg binary
