@@ -87,14 +87,7 @@ public class SierpinskiCarpet {
 		BufferedImage image = new BufferedImage(arrayRes, arrayRes, BufferedImage.TYPE_INT_ARGB);
 		File f = null;
 		
-		try {
-			//prepare image by setting all pixels to alpha
-			for(int i = 0; i < image.getWidth(); i++) {
-				for(int j = 0; j < image.getHeight(); j++) {
-					image.setRGB(i, j, (new Color(0, 0, 0, 0)).getRGB());
-				}
-			}
-			
+		try {			
 			//apply menger square to image
 			for(int i = 0; i < arrayRes; i++) {
 				for(int j = 0; j < arrayRes; j++) {
