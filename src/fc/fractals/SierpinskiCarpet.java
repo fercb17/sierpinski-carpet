@@ -1,4 +1,4 @@
-package fercb17;
+package fc.fractals;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
