@@ -25,7 +25,7 @@ public class SierpinskiCarpet {
 		if(msa != null) {
 			Coord origin = new Coord(0, 0);
 			Coord offset = new Coord(msa.length, msa.length);
-			generateMengerSponge(
+			generateSierpinskiCarpet(
 					0												//depth
 					, 0												//sector
 					, new Constraint(								//Constraint
@@ -33,7 +33,7 @@ public class SierpinskiCarpet {
 							, Coord.offset(origin, offset, 1, 0)	//b or right top
 							, Coord.offset(origin, offset, 0, 1)	//c or left bottom
 							)
-					, 4												//max depth
+					, 8												//max depth
 					);
 			export(msa.length, "testimage");
 		}
@@ -59,13 +59,13 @@ public class SierpinskiCarpet {
 		return new byte[s][s];
 	}
 	
-	public static void generateMengerSponge(int depth, int sector, Constraint ct, int mdp) {
+	public static void generateSierpinskiCarpet(int depth, int sector, Constraint ct, int mdp) {
 		if(depth > mdp || mdp == 9) {
 			return;
 		} else { //depth < max depth
 			for(int i = 0; i < 9; i++) {
 				if (i != 4) {
-					generateMengerSponge(depth+1, i, Constraint.calculate(i, ct.a, ct.b, ct.c), mdp);
+					generateSierpinskiCarpet(depth+1, i, Constraint.calculate(i, ct.a, ct.b, ct.c), mdp);
 					if(depth == mdp) {
 						fill(ct);
 					}
